@@ -4,6 +4,7 @@ using Uno.UX;
 using Fuse.Effects;
 using Fuse;
 
+// Based on https://mouaif.wordpress.com/2009/01/05/photoshop-math-with-glsl-shaders/
 public sealed class ContrastSaturationBrightness : BasicEffect
 {
 	
@@ -77,7 +78,6 @@ public sealed class ContrastSaturationBrightness : BasicEffect
 			Invert: true;
 			Size: elementRect.Size;
 			Texture: original.ColorBuffer;
-			// Based on https://mouaif.wordpress.com/2009/01/05/photoshop-math-with-glsl-shaders/
 			float3 lumCoeff: float3(0.2125f, 0.7154f, 0.0721f);
 			float3 brightnessColor: TextureColor.XYZ * _brightness;
 			float intensityf: Uno.Vector.Dot(brightnessColor, lumCoeff);
