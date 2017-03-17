@@ -4,7 +4,17 @@ Extra image effects for Fuse
 ## Background
 [Fuse](http://fusetools.com) is built on a proprietary programming language called Uno, which is based off C# and adds a number of features for platform agnostic programming and easy access to hardware accelerated rendering features.
 
-Because of this, Fuse has a post processing effects pipeline that is fairly easy to extend, with a little grit and intuition. This repo contains additional post processing effects pieced together by myself in the process of learning how Uno `draw` statements work, and currently contains the following effects:
+Because of this, Fuse has a post processing effects pipeline that is fairly easy to extend, with a little grit and intuition. This repo contains additional post processing effects pieced together by myself in the process of learning how Uno `draw` statements work.
+
+## Adding to your project
+Just clone this repo and add a project reference to it in your unoproj:
+```
+"Projects":[
+  "../FuseFX/FuseFX.unoproj"
+]
+```
+
+## Current effects
 
 ### ChromaticAberration
 This effect applies a naive spatial distortion to the individual color components of the rendered element, offsetting colors from their original location. Each component has an `Offset` property, taking a 2-component comma separated float list corresponding to the X and Y offsets.
