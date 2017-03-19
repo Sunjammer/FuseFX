@@ -4,7 +4,13 @@ Extra image effects for Fuse
 ## Background
 [Fuse](http://fusetools.com) is built on a proprietary programming language called Uno, which is based off C# and adds a number of features for platform agnostic programming and easy access to hardware accelerated rendering features.
 
-Because of this, Fuse has a post processing effects pipeline that is fairly easy to extend, with a little grit and intuition. This repo contains additional post processing effects.
+Because of this, Fuse has a post processing effects pipeline that is fairly easy to extend, with a little grit and intuition. This repo is a community effort to extend Fuse with more image effects.
+
+## How to contribute
+* Fork the repository
+* Experiment
+* Make pull requests vs the develop branch
+* Bob's your uncle
 
 ## Adding to your project
 Just clone this repo and add a project reference to it in your unoproj:
