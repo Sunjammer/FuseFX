@@ -57,3 +57,24 @@ Apply Photoshop-style color range remapping and gamma correction using input/out
   <Levels MinInput="0.1" />
 </Image>
 ```
+
+### Grayscale
+Convert to graycale.
+
+Algorithm can be on of:
+
+- `Monochrome`
+- `Average`, R+G+B / 3
+- `Luma`, R * 0.2126 + g * 0.7152 + B * 0.0722
+- `MaxDecomposition`, Max(R,G,B)
+- `MinDecomposition`, Min(R,G,B)
+- `Desaturate`, Max(R,G,B) + Min(R,G,B) / 2
+- `RedChannel`, R
+- `GreenChannel`, G
+- `BlueChannel`, B
+
+```UX
+<Image File="foo.png">
+  <Grayscale Algorithm="Average" />
+</Image>
+```
