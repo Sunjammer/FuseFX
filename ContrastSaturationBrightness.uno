@@ -42,8 +42,8 @@ public sealed class ContrastSaturationBrightness : BasicEffect
 		}
 	}
 	
-	float _contrast = 1.0f;
-	public float Contrast
+	float3 _contrast = float3(1.0f);
+	public float3 Contrast
 	{
 		get
 		{
