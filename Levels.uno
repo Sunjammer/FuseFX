@@ -8,8 +8,8 @@ using Fuse;
 // Based on https://mouaif.wordpress.com/2009/01/05/photoshop-math-with-glsl-shaders/
 public sealed class Levels : BasicEffect
 {
-	float _gamma = 1.0f;
-	public float Gamma
+	float4 _gamma = float4(1.0f);
+	public float4 Gamma
 	{
 		get
 		{
@@ -24,8 +24,8 @@ public sealed class Levels : BasicEffect
 			}
 		}
 	}
-	float _minInput = 0.0f;
-	public float MinInput
+	float4 _minInput = float4(0.0f);
+	public float4 MinInput
 	{
 		get
 		{
@@ -40,8 +40,8 @@ public sealed class Levels : BasicEffect
 			}
 		}
 	}
-	float _maxInput= 1.0f;
-	public float MaxInput
+	float4 _maxInput = float4(1.0f);
+	public float4 MaxInput
 	{
 		get
 		{
@@ -56,8 +56,8 @@ public sealed class Levels : BasicEffect
 			}
 		}
 	}
-	float _minOutput = 0.0f;
-	public float MinOutput
+	float4 _minOutput = float4(0.0f);
+	public float4 MinOutput
 	{
 		get
 		{
@@ -72,8 +72,8 @@ public sealed class Levels : BasicEffect
 			}
 		}
 	}
-	float _maxOutput = 1.0f;
-	public float MaxOutput
+	float4 _maxOutput = float4(1.0f);
+	public float4 MaxOutput
 	{
 		get
 		{
@@ -108,14 +108,8 @@ public sealed class Levels : BasicEffect
 			Size: elementRect.Size;
 			Texture: original.ColorBuffer;
 			TextureColor: prev TextureColor;
-			float3 minIn: float3(_minInput);
-			float3 maxIn: float3(_maxInput);
-			float3 minOut: float3(_minOutput);
-			float3 maxOut: float3(_maxOutput);
-			float3 levelsControlInputRange: Min(Max(TextureColor.XYZ - minIn, float3(0.0f)) / (maxIn - minIn), float3(1.0f));
-			float3 levelsControlInput: Pow(levelsControlInputRange, float3(1.0f / _gamma));
-			float3 color: Lerp(minOut, maxOut, levelsControlInput);
-			PixelColor: float4(color, TextureColor.W);
+			float4 gammaR: 1.0f / _gamma;
+			PixelColor: Lerp(_minOutput, _maxOutput, Pow(Min(Max(TextureColor - _minInput, float4(0.0f)) / (_maxInput - _minInput), float4(1.0f)), gammaR));
 		};
 
 		FramebufferPool.Release(original);
