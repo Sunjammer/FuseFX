@@ -71,6 +71,7 @@ Apply Photoshop-style color range remapping and gamma correction using input/out
 
 ### Grayscale
 ![Grayscale](./screenshots/greyscale.png)
+
 Convert to grayscale.
 
 Algorithms:
