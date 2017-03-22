@@ -91,3 +91,17 @@ Algorithms:
   <Grayscale Algorithm="Average" />
 </Image>
 ```
+
+### CircularMask
+![CircularMask](./screenshots/circularmask.png)
+
+Apply a distance-based filter to the alpha channel, resulting in a circular inner or outer mask effect.
+
+All values are normalized: 0.5 is halfway to anything. Use the `Cutout` property to switch polarity and the `EdgeSoftness` to adjust the crispness of the mask edge. 
+
+```UX
+<Image File="lenna.png">
+  <CircularMask Cutout="true" Position="0.5,0.5" Radius="0.4" EdgeSoftness="0.1"/>
+</Image>
+<Image File="planet.jpg" StretchMode="UniformToFill"/>
+```
